@@ -1,4 +1,4 @@
-<mat-tab-group>
+<mat-tab-group (selectedTabChange)="tabChange($event)">
   <mat-tab label="Students' Panel">
     <div class="student-panel-card-container">
       <mat-card>

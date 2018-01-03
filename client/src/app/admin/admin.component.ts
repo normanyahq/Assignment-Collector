@@ -17,6 +17,7 @@ export class AdminComponent implements OnInit {
   public dataSource = new MatTableDataSource<Submission>();
   public displayedColumns = ['title', 'department', 'classname', 'major', 'students'];
   public deadline = new FormControl(new Date());
+  authorized = false;
 
   constructor(private adminService: AdminService, public snackBar: MatSnackBar) {
   }
@@ -32,8 +33,10 @@ export class AdminComponent implements OnInit {
           .join(', ');
       });
       this.dataSource = new MatTableDataSource<any>(data);
+      this.authorized = true;
     });
   }
+
 
   archieveAndReset() {
     if (this.deadline.value.getTime() > new Date().getTime()) {
@@ -55,15 +58,21 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    this.updateTableData();
-    this.updateDeadline();
+  async activatePage() {
+    await this.updateTableData();
+    await this.updateDeadline();
 
-    setInterval(() => {
-      this.updateTableData();
-      this.updateDeadline();
-    }, 5000);
+    if (this.authorized) {
+      setInterval(() => {
+        this.updateTableData();
+        this.updateDeadline();
+      }, 5000);
+    }
+
   }
+
+  ngOnInit() { }
+
 
   showMessage(message: string) {
     this.snackBar.open(message, 'close', {
@@ -80,7 +89,6 @@ export class AdminComponent implements OnInit {
 
   updateDeadline() {
     this.adminService.getDeadline().then(newDeadline => {
-      console.log(newDeadline);
       this.deadline = new FormControl(newDeadline);
     });
   }

@@ -5,7 +5,7 @@
   "author": "Heqing Ya",
   "license": "MIT",
   "scripts": {
-    "debug": "nodemon --watch 'src/**/*' -e ts,tsx --exec 'ts-node' ./src/server.ts"
+    "debug": "nodemon --watch 'src/**/*' -e ts,tsx --exec 'ts-node' ./src/server.ts",
     "build": "tsc"
   },
   "dependencies": {
