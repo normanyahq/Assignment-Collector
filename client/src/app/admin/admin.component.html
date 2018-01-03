@@ -12,27 +12,27 @@
             The actual rendered columns are set as a property on the row definition" -->
 
     <ng-container matColumnDef="title">
-      <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> 标题 </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="department">
-      <mat-header-cell *matHeaderCellDef> Department </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> 学院 </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.department}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="classname">
-      <mat-header-cell *matHeaderCellDef> Class </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> 班级 </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.className}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="major">
-      <mat-header-cell *matHeaderCellDef> Major </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> 专业 </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.major}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="students">
-      <mat-header-cell *matHeaderCellDef> Students </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> 学生 </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.students}} </mat-cell>
     </ng-container>
 
@@ -41,5 +41,5 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
 </div>
-<a mat-button href='/download' target="_blank">Download All</a>
-<button mat-button color="warn" (click)="archieveAndReset()">Archieve and Reset</button>
+<a mat-button href='/download' target="_blank">下载所有提交</a>
+<button mat-button color="warn" (click)="archieveAndReset()">归档并重置</button>

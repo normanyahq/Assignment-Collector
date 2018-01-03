@@ -43,7 +43,7 @@ router.post('/submit', async (ctx: IRouterContext, next: () => Promise<any>) => 
         ctx.response.status = 400;
         ctx.response.body = getBody(
             '',
-            `You are submitting too fast, please wait for a while.`,
+            `提交过于频繁，请稍后重试。`,
             true
         );
         return;
@@ -72,7 +72,7 @@ router.post('/submit', async (ctx: IRouterContext, next: () => Promise<any>) => 
     if (deadline.getTime() < new Date().getTime()) {
         ctx.response.body = getBody(
             '',
-            `The deadline has passed, you can't submit anymore.`,
+            `截止日期已过，无法提交。`,
             true
         )
         return;
@@ -82,7 +82,7 @@ router.post('/submit', async (ctx: IRouterContext, next: () => Promise<any>) => 
         ctx.response.status = 400;
         ctx.response.body = getBody(
             '',
-            `Incomplete submission, one or more required fields are missing.`,
+            `提交表格不完整，请检查。`,
             true
         );
         return;
@@ -92,7 +92,7 @@ router.post('/submit', async (ctx: IRouterContext, next: () => Promise<any>) => 
         ctx.response.status = 400;
         ctx.response.body = getBody(
             '',
-            `Invalid File Extension: ${file.name}`,
+            `无效的文件后缀名： ${file.name}，请检查并上传正确的文件。`,
             true
         );
         return;
@@ -101,7 +101,7 @@ router.post('/submit', async (ctx: IRouterContext, next: () => Promise<any>) => 
     await assignment.save();
 
     requestRateLimiter.access(ctx.request.ip);
-    ctx.response.body = getBody('Upload Succeed.');
+    ctx.response.body = getBody('提交成功。');
 });
 
 router.get('/submissions', async (ctx: IRouterContext, next: () => Promise<any>) => {
@@ -116,7 +116,7 @@ router.get('/deadline', async (ctx: IRouterContext, next: () => Promise<any>) =>
 router.post('/deadline', async (ctx: IRouterContext, next: () => Promise<any>) => {
     const deadline = new Date((<any>ctx.request).body.deadline);
     deadlineManager.setDeadline(deadline);
-    ctx.response.body = getBody("", "Deadline successfully updated.");
+    ctx.response.body = getBody("", "截止日期已更新。");
 });
 
 router.get('/download', async (ctx: IRouterContext, next: () => Promise<any>) => {
@@ -167,6 +167,6 @@ router.post('/archieve', async (ctx: IRouterContext, next: () => Promise<any>) =
 
     await cleanUpDir(config.assignmentPath);
 
-    ctx.response.body = getBody("", "Submissions are all archieved.");
+    ctx.response.body = getBody("", "作业已全部归档。");
 
 });

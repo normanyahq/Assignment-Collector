@@ -63,15 +63,15 @@ export class FormComponent implements OnInit {
       .subscribe(
       data => {
         if (data['error'] === false) {
-          alert('Assignment has been successfully submitted.');
+          alert('作业提交成功！');
         } else if (data['error'] === true) {
-          alert(`Error occurred: ${data['message']}`);
+          alert(`错误: ${data['message']}`);
         } else {
-          alert(`Internal error occurred, please contact website adminstrator.`);
+          alert(`网站内部错误，请联系网站管理员。`);
         }
       },
       error => {
-        alert(error.error.message || 'Internal error occurred, please contact website administrator.');
+        alert(error.error.message || '网站内部错误，请联系网站管理员。');
       }
       );
   }

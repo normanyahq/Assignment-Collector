@@ -10,13 +10,13 @@ import { MatTabChangeEvent } from '@angular/material';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Assignment Submission Page';
+  title = '作业提交页面';
   @ViewChild(AdminComponent) adminComponent: AdminComponent;
 
   constructor(private formService: FormService) { }
 
   tabChange(event: MatTabChangeEvent) {
-    if (event.tab.textLabel === `Teacher's Panel`) {
+    if (event.tab.textLabel === `教师面板`) {
       this.adminComponent.activatePage();
     }
   }

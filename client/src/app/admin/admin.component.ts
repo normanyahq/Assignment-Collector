@@ -40,11 +40,11 @@ export class AdminComponent implements OnInit {
 
   archieveAndReset() {
     if (this.deadline.value.getTime() > new Date().getTime()) {
-      this.showMessage('Cannot archieve before the deadline.');
+      this.showMessage('截止日期前不可进行归档操作。');
       return;
     }
 
-    const result = confirm('Are you going to archieve everything and reset the submissions?');
+    const result = confirm('你确定要把当前所有作业归档，并清空当前所有提交吗？');
     if (!result) {
       return;
     }
@@ -83,7 +83,7 @@ export class AdminComponent implements OnInit {
   saveDeadlineChange(event: MatDatepickerInputEvent<Date>) {
     const newDeadline = new Date(event.value.getTime() + (3600 * 24 - 1) * 1000); // until the end of the day
     this.adminService.postDeadline(newDeadline).then(() => {
-      this.showMessage(`Deadline has been updated to ${newDeadline.toLocaleString()}`);
+      this.showMessage(`截止日期已被设置为 ${newDeadline.toLocaleString()}`);
     });
   }
 

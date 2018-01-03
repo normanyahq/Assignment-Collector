@@ -1,27 +1,27 @@
 <form class="submission-form">
-  Deadline: {{deadline}}
+  截止日期: {{deadline}}
   <mat-form-field>
-    <input matInput [(ngModel)]="submission.title" name="title" placeholder="Assignment Title" value="" required>
+    <input matInput [(ngModel)]="submission.title" name="title" placeholder="标题" value="" required>
   </mat-form-field>
   <mat-form-field>
-    <input matInput [(ngModel)]="submission.department" name="department" placeholder="Department" value="" required>
+    <input matInput [(ngModel)]="submission.department" name="department" placeholder="学院" value="" required>
   </mat-form-field>
   <mat-form-field>
-    <input matInput [(ngModel)]="submission.className" name="class" placeholder="Class Name" value="" required>
+    <input matInput [(ngModel)]="submission.className" name="class" placeholder="班级" value="" required>
   </mat-form-field>
   <mat-form-field>
-    <input matInput [(ngModel)]="submission.major" name="major" placeholder="Major" value="" required>
+    <input matInput [(ngModel)]="submission.major" name="major" placeholder="专业" value="" required>
   </mat-form-field>
   <table id="student-list" class="full-width" cellspacing="0">
     <tr *ngFor="let student of submission.students; let idx = index">
       <td>
         <mat-form-field class="full-width">
-          <input matInput [(ngModel)]="student.id" name="student_id_{{idx}}" placeholder="Student Id" required>
+          <input matInput [(ngModel)]="student.id" name="student_id_{{idx}}" placeholder="学号" required>
         </mat-form-field>
       </td>
       <td>
         <mat-form-field class="full-width">
-          <input matInput [(ngModel)]="student.name" name="student_name_{{idx}}" placeholder="Student Name" required>
+          <input matInput [(ngModel)]="student.name" name="student_name_{{idx}}" placeholder="姓名" required>
         </mat-form-field>
       </td>
       <td>
@@ -36,17 +36,17 @@
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          Academic Integrity Pledge
+          学术诚信要求
         </mat-panel-title>
         <mat-panel-description>
-          Click to expand
+          点击展开
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <p>I affirm that I will not give or receive any unauthorized help on this exam, and that all work will be my own.</p>
+      <p>此次作业必须由个人或小组独立完成，不得存在任何抄袭、剽窃、代写的行为，在作业提交后将交由相关学术部门进行查重，如有违反将依照学校相关规则进行处理。</p>
     </mat-expansion-panel>
   </div>
 
-  <mat-checkbox name="pledge" [(ngModel)]="buttonState" [required]="true">I agree with the Academic Integrity Pledge shown above.</mat-checkbox>
+  <mat-checkbox name="pledge" [(ngModel)]="buttonState" [required]="true">我同意上述学术诚信要求</mat-checkbox>
 
-  <button [disabled]="!buttonState" mat-button color="primary" (click)="onSubmit()">Submit</button>
+  <button [disabled]="!buttonState" mat-button color="primary" (click)="onSubmit()">提交</button>
 </form>
