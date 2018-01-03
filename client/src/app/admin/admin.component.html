@@ -1,7 +1,7 @@
 <div>
 
   <mat-form-field>
-    <input matInput [matDatepicker]="Deadline" placeholder="Deadline" (dateChange)="saveDeadlineChange($event)" [value]="deadline.value">
+    <input matInput [matDatepicker]="Deadline" placeholder="截止日期" (dateChange)="saveDeadlineChange($event)" [value]="deadline.value">
     <mat-datepicker-toggle matSuffix [for]="Deadline"></mat-datepicker-toggle>
     <mat-datepicker #Deadline></mat-datepicker>
   </mat-form-field>
