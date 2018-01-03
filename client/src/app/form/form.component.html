@@ -1,0 +1,52 @@
+<form class="submission-form">
+  Deadline: {{deadline}}
+  <mat-form-field>
+    <input matInput [(ngModel)]="submission.title" name="title" placeholder="Assignment Title" value="" required>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="submission.department" name="department" placeholder="Department" value="" required>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="submission.className" name="class" placeholder="Class Name" value="" required>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="submission.major" name="major" placeholder="Major" value="" required>
+  </mat-form-field>
+  <table id="student-list" class="full-width" cellspacing="0">
+    <tr *ngFor="let student of submission.students; let idx = index">
+      <td>
+        <mat-form-field class="full-width">
+          <input matInput [(ngModel)]="student.id" name="student_id_{{idx}}" placeholder="Student Id" required>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="full-width">
+          <input matInput [(ngModel)]="student.name" name="student_name_{{idx}}" placeholder="Student Name" required>
+        </mat-form-field>
+      </td>
+      <td>
+        <button mat-button (click)="addStudent()" *ngIf="!idx">+</button>
+        <button mat-button (click)="removeStudent(idx)" *ngIf="idx">-</button>
+      </td>
+    </tr>
+  </table>
+  <input #filepicker name="file" type="file" (change)="fileChange(filepicker.files)">
+
+  <div class="academic-integrity-pledge-container">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Academic Integrity Pledge
+        </mat-panel-title>
+        <mat-panel-description>
+          Click to expand
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>I affirm that I will not give or receive any unauthorized help on this exam, and that all work will be my own.</p>
+    </mat-expansion-panel>
+  </div>
+
+  <mat-checkbox name="pledge" [(ngModel)]="buttonState" [required]="true">I agree with the Academic Integrity Pledge shown above.</mat-checkbox>
+
+  <button [disabled]="!buttonState" mat-button color="primary" (click)="onSubmit()">Submit</button>
+</form>

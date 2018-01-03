@@ -1,0 +1,22 @@
+{
+  "/submit": {
+    "target": "http://localhost:3000/",
+    "secure": false
+  },
+  "/submissions": {
+    "target": "http://localhost:3000/",
+    "secure": false
+  },
+  "/download": {
+    "target": "http://localhost:3000/",
+    "secure": false
+  },
+  "/deadline": {
+    "target": "http://localhost:3000/",
+    "secure": false
+  },
+  "/archieve": {
+    "target": "http://localhost:3000/",
+    "secure": false
+  }
+}

@@ -1,0 +1,13 @@
+.student-panel-card-container {
+  width: 500px;
+  margin: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.teacher-panel-card-container {
+  width: 800px;
+  margin: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

@@ -1,0 +1,26 @@
+<mat-tab-group>
+  <mat-tab label="Students' Panel">
+    <div class="student-panel-card-container">
+      <mat-card>
+        <mat-card-title>
+          {{ title }}
+        </mat-card-title>
+        <mat-card-content>
+          <app-form></app-form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-tab>
+  <mat-tab label="Teacher's Panel">
+    <div class="teacher-panel-card-container">
+      <mat-card>
+        <mat-card-title>
+          Management System
+        </mat-card-title>
+        <mat-card-content>
+          <app-admin></app-admin>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-tab>
+</mat-tab-group>

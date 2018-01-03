@@ -1,0 +1,20 @@
+.submission-form {
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.submission-form > * {
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.academic-integrity-pledge-container {
+  margin-top: 10px; 
+  margin-bottom: 10px;
+}
