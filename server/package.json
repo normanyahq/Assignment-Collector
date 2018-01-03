@@ -1,0 +1,28 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Heqing Ya",
+  "license": "MIT",
+  "scripts": {
+    "debug": "nodemon --watch 'src/**/*' -e ts,tsx --exec 'ts-node' ./src/server.ts"
+    "build": "tsc"
+  },
+  "dependencies": {
+    "globby": "^7.1.1",
+    "koa": "^2.4.1",
+    "koa-body": "^2.5.0",
+    "koa-router": "^7.3.0",
+    "koa-static": "^4.0.2",
+    "sanitize-filename": "^1.6.1"
+  },
+  "devDependencies": {
+    "@types/globby": "^6.1.0",
+    "@types/koa": "^2.0.43",
+    "@types/koa-router": "^7.0.27",
+    "@types/sanitize-filename": "^1.1.28",
+    "nodemon": "^1.14.7",
+    "ts-node": "^4.1.0",
+    "typescript": "^2.6.2"
+  }
+}
